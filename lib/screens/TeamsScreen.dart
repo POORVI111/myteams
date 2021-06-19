@@ -16,6 +16,7 @@ import 'package:myteams/screens/widgets/InitialChatList.dart';
 import 'package:provider/provider.dart';
 
 import 'CreateTeam.dart';
+import 'JoinTeam.dart';
 import 'TeamView.dart';
 import 'call_pickup_layout.dart';
 
@@ -95,7 +96,7 @@ class TeamsScreen extends StatelessWidget {
                          onPressed: (){
                            Navigator.push(
                              context,
-                             MaterialPageRoute(builder: (context) => SearchScreen()),
+                             MaterialPageRoute(builder: (context) => JoinTeam()),
                            );
                          },
                        ),

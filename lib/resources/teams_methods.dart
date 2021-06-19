@@ -88,7 +88,7 @@ class TeamMethods {
 
       });
 
-
+      await addToTeams(userId: user.uid, teamId: teamId);
       retVal = "success";
     } on PlatformException catch (e) {
       retVal = "Make sure you have the right team ID!";

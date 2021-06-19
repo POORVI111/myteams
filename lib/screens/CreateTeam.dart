@@ -28,7 +28,7 @@ class _CreateTeamState extends State<CreateTeam> {
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
-        title: Text('Create Community',
+        title: Text('Create Team',
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
       body: ListView(
@@ -46,7 +46,7 @@ class _CreateTeamState extends State<CreateTeam> {
               child: TextField(
                 controller: nameController,
                 decoration: InputDecoration(
-                  hintText: 'Name your community',
+                  hintText: 'Name your team',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
@@ -59,8 +59,8 @@ class _CreateTeamState extends State<CreateTeam> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: FlatButton(
-              onPressed: createCommunity,
-              child: Text('Create Community',
+              onPressed: createTeam,
+              child: Text('Create Team',
                   style: TextStyle(
                       color: Theme.of(context).accentColor, fontSize: 18)),
               shape: RoundedRectangleBorder(
@@ -74,7 +74,7 @@ class _CreateTeamState extends State<CreateTeam> {
   }
 
   // This will create community
-  createCommunity() async {
+  createTeam() async {
     String commName = nameController.text;
     if (commName.isEmpty ||
         commName.length < 3 ||
