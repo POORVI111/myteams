@@ -6,8 +6,9 @@ import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
 import 'package:provider/provider.dart';
 
-import 'call_pickup_layout.dart';
-import 'chat_list_screen.dart';
+import '../resources/localDB/LogRepository.dart';
+import 'chat/ChatListScreen.dart';
+import 'widgets/call_pickup_layout.dart';
 
 
 class  HomeScreen extends StatefulWidget {
@@ -21,8 +22,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   UserProvider userProvider;
 
   final AuthMethods _authMethods = AuthMethods();
-  // final LogRepository _logRepository = LogRepository(isHive: true);
-  // final LogRepository _logRepository = LogRepository(isHive: false);
+
 
   @override
   void initState() {
@@ -37,12 +37,12 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         userState: UserState.Online,
       );
 
-     /* LogRepository.init(
+      LogRepository.init(
         isHive: true,
         dbName: userProvider.getUser.uid,
       );
 
-      */
+
     });
 
 
@@ -115,17 +115,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         backgroundColor: Colors.white,
         body: PageView(
           children: <Widget>[
+            NotifScreen(),
+            TeamsListScreen(),
             ChatListScreen(),
-            Center(
-                child: Text(
-                  "Contact Screen",
-                  style: TextStyle(color: Colors.white),
-                )),
-            Center(
-                child: Text(
-                  "Contact Screen",
-                  style: TextStyle(color: Colors.black),
-                )),
           ],
           controller: pageController,
           onPageChanged: onPageChanged,
@@ -133,25 +125,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
         ),
         bottomNavigationBar: Container(
           child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 8),
+            padding: EdgeInsets.symmetric(vertical: 6),
             child: CupertinoTabBar(
               backgroundColor: Colors.white,
               items: <BottomNavigationBarItem>[
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.chat,
+                  icon: Icon(Icons.notifications_none_outlined,
                       color: (currIndex== 0)
                           ? Colors.deepPurple
                           : Colors.black),
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.call,
+                  icon: Icon(Icons.group_outlined,
                       color: (currIndex == 1)
                           ? Colors.deepPurple
                           : Colors.black),
 
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.contact_phone,
+                  icon: Icon(Icons.chat_outlined,
                       color: (currIndex == 2)
                           ? Colors.deepPurple
                           : Colors.black),

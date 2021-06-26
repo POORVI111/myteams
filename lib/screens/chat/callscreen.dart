@@ -268,7 +268,11 @@ class _CallScreenState extends State<CallScreen> {
             padding: const EdgeInsets.all(12.0),
           ),
           RawMaterialButton(
-            onPressed: () => callMethods.endCall(call: widget.call),
+            onPressed: () =>
+            {
+              callMethods.endCall(call: widget.call),
+              Navigator.pop(context),
+            },
             child: Icon(
               Icons.call_end,
               color: Colors.white,

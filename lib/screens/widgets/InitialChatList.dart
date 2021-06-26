@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import '../searchscreen.dart';
 
 
-class InitialChatList extends StatelessWidget {
+class InitialList extends StatelessWidget {
   final String heading;
   final String subtitle;
 
-  InitialChatList({
+  InitialList({
     @required this.heading,
     @required this.subtitle,
   });

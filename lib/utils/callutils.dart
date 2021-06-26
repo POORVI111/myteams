@@ -34,11 +34,13 @@ class CallUtils {
 
     bool callMade = await callMethods.makeCall(call: call);
 
+    
+    
     call.hasDialled = true;
 
     if (callMade) {
       // enter log
-     // LogRepository.addLogs(log);
+      LogRepository.addLogs(log);
 
       Navigator.push(
         context,

@@ -8,6 +8,7 @@ MERGED from C:\Users\POORVI\AndroidStudioProjects\myteams\android\app\src\main\A
 MERGED from [:file_picker] C:\Users\POORVI\AndroidStudioProjects\myteams\build\file_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-17:12
 MERGED from [:google_sign_in] C:\Users\POORVI\AndroidStudioProjects\myteams\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-15:12
+MERGED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:sqflite] C:\Users\POORVI\AndroidStudioProjects\myteams\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:image_picker] C:\Users\POORVI\AndroidStudioProjects\myteams\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-19:12
 MERGED from [:flutter_plugin_android_lifecycle] C:\Users\POORVI\AndroidStudioProjects\myteams\build\flutter_plugin_android_lifecycle\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -81,6 +82,7 @@ MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\POORVI\.gradle
 MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7387e0e899356b107b02671170a21831\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\20ffdba1b664ae9b156936da8fe3ba84\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:2:1-13:12
+MERGED from [io.agora.rtm:rtm-sdk:1.2.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\fbba9cf53a599ec429281d78d4c4c6bf\jetified-rtm-sdk-1.2.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.agorabuilder:native-full-sdk:3.4.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\f3683dec914289ac84190da8bebb3621\jetified-native-full-sdk-3.4.2\AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7387f04e2a463254c450b23b18a75359\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:2:1-11:12
 INJECTED from C:\Users\POORVI\AndroidStudioProjects\myteams\android\app\src\debug\AndroidManifest.xml:1:1-7:12
@@ -231,6 +233,8 @@ MERGED from [:google_sign_in] C:\Users\POORVI\AndroidStudioProjects\myteams\buil
 MERGED from [:google_sign_in] C:\Users\POORVI\AndroidStudioProjects\myteams\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] C:\Users\POORVI\AndroidStudioProjects\myteams\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] C:\Users\POORVI\AndroidStudioProjects\myteams\build\sqflite\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:image_picker] C:\Users\POORVI\AndroidStudioProjects\myteams\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
@@ -377,6 +381,8 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\POORVI\.gradle\caches\transfor
 MERGED from [androidx.print:print:1.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\20ffdba1b664ae9b156936da8fe3ba84\print-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:7:5-9:41
 MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:7:5-9:41
+MERGED from [io.agora.rtm:rtm-sdk:1.2.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\fbba9cf53a599ec429281d78d4c4c6bf\jetified-rtm-sdk-1.2.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.agora.rtm:rtm-sdk:1.2.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\fbba9cf53a599ec429281d78d4c4c6bf\jetified-rtm-sdk-1.2.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.agorabuilder:native-full-sdk:3.4.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\f3683dec914289ac84190da8bebb3621\jetified-native-full-sdk-3.4.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.agorabuilder:native-full-sdk:3.4.2] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\f3683dec914289ac84190da8bebb3621\jetified-native-full-sdk-3.4.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.firebase:protolite-well-known-types:18.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7387f04e2a463254c450b23b18a75359\jetified-protolite-well-known-types-18.0.0\AndroidManifest.xml:7:5-9:41
@@ -393,6 +399,8 @@ uses-permission#android.permission.INTERNET
 ADDED from C:\Users\POORVI\AndroidStudioProjects\myteams\android\app\src\debug\AndroidManifest.xml:6:5-66
 MERGED from [:google_sign_in] C:\Users\POORVI\AndroidStudioProjects\myteams\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
 MERGED from [:google_sign_in] C:\Users\POORVI\AndroidStudioProjects\myteams\build\google_sign_in\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
+MERGED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
+MERGED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-67
 MERGED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
 MERGED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-67
 MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e6d85187a2542b26ca802ab64f08ea7d\jetified-firebase-auth-21.0.1\AndroidManifest.xml:23:5-67
@@ -469,6 +477,34 @@ ADDED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\bui
 		ADDED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:11:17-82
 	android:name
 		ADDED from [:firebase_storage] C:\Users\POORVI\AndroidStudioProjects\myteams\build\firebase_storage\intermediates\library_manifest\debug\AndroidManifest.xml:10:17-126
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:8:5-79
+MERGED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-79
+MERGED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e6d85187a2542b26ca802ab64f08ea7d\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e6d85187a2542b26ca802ab64f08ea7d\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.firebase:firebase-firestore:23.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\9b3ba58e797fd857157c2a5e4d666897\jetified-firebase-firestore-23.0.1\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-firestore:23.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\9b3ba58e797fd857157c2a5e4d666897\jetified-firebase-firestore-23.0.1\AndroidManifest.xml:13:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\5a1f52081ffdf8e6f0c394b3c905f61e\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\5a1f52081ffdf8e6f0c394b3c905f61e\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7952dce75d62e05b85a8e75db42684d3\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7952dce75d62e05b85a8e75db42684d3\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\36b22684b5493d23b71c37a630afc56d\jetified-firebase-installations-17.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\36b22684b5493d23b71c37a630afc56d\jetified-firebase-installations-17.0.0\AndroidManifest.xml:10:5-79
+MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\a3e8f2122815c99e5809e9a330f2a6d6\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\a3e8f2122815c99e5809e9a330f2a6d6\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e7e62e5c6dd4e90a687614788cc08f26\jetified-play-services-measurement-impl-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e7e62e5c6dd4e90a687614788cc08f26\jetified-play-services-measurement-impl-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\506dc9adf57d3c1669b54cfbd7942d61\jetified-play-services-measurement-sdk-api-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\506dc9adf57d3c1669b54cfbd7942d61\jetified-play-services-measurement-sdk-api-19.0.0\AndroidManifest.xml:24:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
+MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
+	android:name
+		ADDED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:8:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from [:agora_rtm] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtm\intermediates\library_manifest\debug\AndroidManifest.xml:9:22-78
 provider#io.flutter.plugins.imagepicker.ImagePickerFileProvider
 ADDED from [:image_picker] C:\Users\POORVI\AndroidStudioProjects\myteams\build\image_picker\intermediates\library_manifest\debug\AndroidManifest.xml:8:9-16:20
 	android:grantUriPermissions
@@ -501,28 +537,6 @@ uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
 ADDED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-80
 	android:name
 		ADDED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:14:22-77
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:15:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e6d85187a2542b26ca802ab64f08ea7d\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-auth:21.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e6d85187a2542b26ca802ab64f08ea7d\jetified-firebase-auth-21.0.1\AndroidManifest.xml:24:5-79
-MERGED from [com.google.firebase:firebase-firestore:23.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\9b3ba58e797fd857157c2a5e4d666897\jetified-firebase-firestore-23.0.1\AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-firestore:23.0.1] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\9b3ba58e797fd857157c2a5e4d666897\jetified-firebase-firestore-23.0.1\AndroidManifest.xml:13:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\5a1f52081ffdf8e6f0c394b3c905f61e\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.firebase:firebase-storage:20.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\5a1f52081ffdf8e6f0c394b3c905f61e\jetified-firebase-storage-20.0.0\AndroidManifest.xml:26:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7952dce75d62e05b85a8e75db42684d3\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.android.gms:play-services-measurement-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\7952dce75d62e05b85a8e75db42684d3\jetified-play-services-measurement-api-19.0.0\AndroidManifest.xml:23:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\36b22684b5493d23b71c37a630afc56d\jetified-firebase-installations-17.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.firebase:firebase-installations:17.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\36b22684b5493d23b71c37a630afc56d\jetified-firebase-installations-17.0.0\AndroidManifest.xml:10:5-79
-MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\a3e8f2122815c99e5809e9a330f2a6d6\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\a3e8f2122815c99e5809e9a330f2a6d6\jetified-play-services-measurement-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e7e62e5c6dd4e90a687614788cc08f26\jetified-play-services-measurement-impl-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-impl:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\e7e62e5c6dd4e90a687614788cc08f26\jetified-play-services-measurement-impl-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\506dc9adf57d3c1669b54cfbd7942d61\jetified-play-services-measurement-sdk-api-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [com.google.android.gms:play-services-measurement-sdk-api:19.0.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\506dc9adf57d3c1669b54cfbd7942d61\jetified-play-services-measurement-sdk-api-19.0.0\AndroidManifest.xml:24:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
-MERGED from [io.grpc:grpc-android:1.28.0] C:\Users\POORVI\.gradle\caches\transforms-2\files-2.1\878463d082ea537449b804fff2f75aff\jetified-grpc-android-1.28.0\AndroidManifest.xml:11:5-79
-	android:name
-		ADDED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:15:22-76
 uses-permission#android.permission.BLUETOOTH
 ADDED from [:agora_rtc_engine] C:\Users\POORVI\AndroidStudioProjects\myteams\build\agora_rtc_engine\intermediates\library_manifest\debug\AndroidManifest.xml:16:5-68
 	android:name

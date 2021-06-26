@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myteams/models/call.dart';
 import 'package:myteams/resources/call_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
-import 'package:myteams/screens/pickup_screen.dart';
+import 'package:myteams/screens/PickUpScreen.dart';
 import 'package:provider/provider.dart';
 
 

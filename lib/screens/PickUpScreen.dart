@@ -37,7 +37,7 @@ class _PickupScreenState extends State<PickupScreen> {
       callStatus: callStatus,
     );
 
-   // LogRepository.addLogs(log);
+   LogRepository.addLogs(log);
   }
 
   @override

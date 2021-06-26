@@ -48,7 +48,9 @@ dependencies:
   emoji_picker:
   provider:
   agora_rtc_engine:
-
+  agora_rtm:
+  hive:
+  path_provider:
 
 
 

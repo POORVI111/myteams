@@ -9,7 +9,8 @@ import 'package:myteams/screens/widgets/InitialChatList.dart';
 import 'package:myteams/screens/widgets/newChatButton.dart';
 import 'package:provider/provider.dart';
 
-import 'call_pickup_layout.dart';
+import '../widgets/call_pickup_layout.dart';
+import 'searchscreen.dart';
 
 
 class ChatListScreen extends StatelessWidget {

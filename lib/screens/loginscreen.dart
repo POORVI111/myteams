@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myteams/resources/auth_methods.dart';
 
+import 'broadcast/JoinMeet.dart';
 import 'homescreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -32,7 +33,9 @@ class LoginScreenState extends State<LoginScreen> {
        children: [
          Padding(
            padding:const EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
-           child:Image.asset('images/introimage.jpg'),
+           child:ClipOval(
+             child:Image.asset('images/introimage.jpg'),
+           ),
          ),
 
          Padding(
@@ -62,8 +65,11 @@ class LoginScreenState extends State<LoginScreen> {
                             padding: const EdgeInsets.only(left: 60.0),
                           child: Text('Sign in with Google',
                          style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                )
+                         ),
+
+
               ],
+
             ),
           ),
             onTap: () {
@@ -71,6 +77,24 @@ class LoginScreenState extends State<LoginScreen> {
           },
         ),
 
+         ),
+         Padding(padding: const EdgeInsets.only(top: 100.0),
+         child: Align(
+           alignment:Alignment.center,
+           child: OutlinedButton(
+             onPressed: () {
+               Navigator.push(
+                   context,
+                   MaterialPageRoute(builder: (context) => JoinMeet()));
+             },
+
+
+             child: Text('Join a meeting',
+                 style: TextStyle(color: Colors.black, fontSize: 16.0)),
+
+
+           ),
+         )
          ),
     ],
     ),
@@ -107,4 +131,5 @@ class LoginScreenState extends State<LoginScreen> {
       }
     });
   }
+
 }

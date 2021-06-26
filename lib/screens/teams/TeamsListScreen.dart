@@ -15,13 +15,13 @@ import 'package:myteams/screens/widgets/HelperAppBar.dart';
 import 'package:myteams/screens/widgets/InitialChatList.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/call_pickup_layout.dart';
 import 'CreateTeam.dart';
 import 'JoinTeam.dart';
 import 'TeamView.dart';
-import 'call_pickup_layout.dart';
 
 
-class TeamsScreen extends StatelessWidget {
+class TeamsListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PickupLayout(
@@ -146,10 +146,9 @@ class TeamListContainer extends StatelessWidget {
 
               if (docList.isEmpty) {
                 //when user has no chats with anyone
-                return InitialChatList(
+                return InitialList(
                   heading: "This is where all the teams are listed",
-                  subtitle:
-                  "Search friends and family",
+                  subtitle: "Search friends and family",
                 );
               }
               return ListView.builder(

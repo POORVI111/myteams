@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 
-import '../customtile.dart';
-import 'call_pickup_layout.dart';
+import '../widgets/cachedImage.dart';
+import '../widgets/call_pickup_layout.dart';
 import 'chatscreen.dart';
 import 'widgets/cachedImage.dart';
 

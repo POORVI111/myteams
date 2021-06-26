@@ -37,17 +37,8 @@ class UserProfileWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Container(
-                height: 12,
-                width: 12,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.green,
-                ),
-              ),
-            )
+
+
           ],
         ),
       ),
