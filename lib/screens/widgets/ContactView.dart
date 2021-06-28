@@ -4,10 +4,10 @@ import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/chat_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
+import 'package:myteams/utils/customtile.dart';
 import 'package:provider/provider.dart';
 
-import '../../customtile.dart';
-import '../chatscreen.dart';
+import '../chat/chatscreen.dart';
 import 'LastMessageContainer.dart';
 import 'cachedImage.dart';
 import 'onlineDotIndicator.dart';

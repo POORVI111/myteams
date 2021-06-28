@@ -9,7 +9,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myteams/models/user.dart';
-import 'package:myteams/resources/provider/upload_image_provier.dart';
+import 'package:myteams/resources/provider/UploadImageProvider.dart';
 
 import 'chat_methods.dart';
 

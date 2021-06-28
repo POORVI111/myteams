@@ -1,10 +1,12 @@
+/*
+this is widget for online/offline state indictation
+ */
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/enum/user_state.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
-
-import '../../utilities.dart';
+import 'package:myteams/utils/utilities.dart';
 
 
 class OnlineDotIndicator extends StatelessWidget {

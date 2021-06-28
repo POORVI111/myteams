@@ -12,10 +12,9 @@ import 'package:myteams/constants/strings.dart';
 import 'package:myteams/enum/view_state.dart';
 import 'package:myteams/models/message.dart';
 import 'package:myteams/models/user.dart';
-import 'package:myteams/permissions.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/chat_methods.dart';
-import 'package:myteams/resources/provider/upload_image_provier.dart';
+import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/storage_methods.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 import 'package:myteams/utils/customappbar.dart';
@@ -24,11 +23,8 @@ import 'package:myteams/utils/permissions.dart';
 import 'package:myteams/utils/utilities.dart';
 import 'package:provider/provider.dart';
 
-import '../callutils.dart';
-import '../customappbar.dart';
-import '../customtile.dart';
-import '../utilities.dart';
-import 'widgets/cachedImage.dart';
+import '../../utils/callutils.dart';
+import '../widgets/cachedImage.dart';
 
 
 class ChatScreen extends StatefulWidget {
@@ -49,7 +45,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   TextEditingController textFieldController = TextEditingController();
   FocusNode textFieldFocus = FocusNode();
-  ScrollController _listScrollController = ScrollController();
+
 
   UserHelper sender;
   String _currentUserId;
@@ -147,20 +143,13 @@ class _ChatScreenState extends State<ChatScreen> {
           return Center(child: CircularProgressIndicator());
         }
 
-        // SchedulerBinding.instance.addPostFrameCallback((_) {
-        //   _listScrollController.animateTo(
-        //     _listScrollController.position.minScrollExtent,
-        //     duration: Duration(milliseconds: 250),
-        //     curve: Curves.easeInOut,
-        //   );
-        // });
 
         return ListView.builder(
           padding: EdgeInsets.all(10),
           reverse: true,
           itemCount: snapshot.data.docs.length,
           itemBuilder: (context, index) {
-            // mention the arrow syntax if you get the time
+
             return chatMessageItem(snapshot.data.docs[index]);
           },
         );
@@ -192,7 +181,7 @@ class _ChatScreenState extends State<ChatScreen> {
       constraints:
       BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.65),
       decoration: BoxDecoration(
-        color: Colors.white70,//sender
+        color: Colors.black,//sender
         borderRadius: BorderRadius.only(
           topLeft: messageRadius,
           topRight: messageRadius,

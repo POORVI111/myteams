@@ -6,7 +6,6 @@ import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
 import 'package:myteams/screens/homescreen.dart';
 import 'package:myteams/screens/loginscreen.dart';
-import 'package:myteams/screens/searchscreen.dart';
 import 'package:provider/provider.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -37,11 +36,7 @@ class MyAppState extends State<MyApp> {
     ],
       child: MaterialApp(
 
-      initialRoute: '/',
-       routes: {
-       '/searchscreen': (context) => SearchScreen(),
-      },
-       title: 'Teams',
+        title: 'Teams',
         debugShowCheckedModeBanner: false,
         theme: new ThemeData(
             primarySwatch: Colors.blue,

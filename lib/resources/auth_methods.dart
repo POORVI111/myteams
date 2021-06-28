@@ -10,7 +10,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/enum/user_state.dart';
 import 'package:myteams/models/user.dart';
-import 'package:myteams/utilities.dart';
+import 'package:myteams/utils/utilities.dart';
 
 class AuthMethods {
   static final FirebaseFirestore _firestore = FirebaseFirestore.instance;

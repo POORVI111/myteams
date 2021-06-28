@@ -7,10 +7,11 @@ import 'package:flutter/material.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/models/call.dart';
 import 'package:myteams/models/log.dart';
-import 'package:myteams/permissions.dart';
 import 'package:myteams/resources/call_methods.dart';
+import 'package:myteams/utils/permissions.dart';
 
-import 'callscreen.dart';
+import '../resources/localDB/LogRepository.dart';
+import 'chat/callscreen.dart';
 import 'widgets/cachedImage.dart';
 
 
@@ -20,6 +21,7 @@ class PickupScreen extends StatefulWidget {
   PickupScreen({
     @required this.call,
   });
+
 
   @override
   _PickupScreenState createState() => _PickupScreenState();

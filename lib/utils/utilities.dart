@@ -1,12 +1,16 @@
-
+/*
+This is created for utilities functions.
+ -get username
+ -get initials
+ -user state
+ -date
+ */
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
 import 'package:myteams/enum/user_state.dart';
-/*
-This is created for utilities functions.
- */
+
 class Utils {
   static String getUsername(String email) {
     return "live:${email.split('@')[0]}";
@@ -27,19 +31,6 @@ class Utils {
     return selectedImage;
   }
 
-  /*static Future<File> compressImage(File imageToCompress) async {
-    final tempDir = await getTemporaryDirectory();
-    final path = tempDir.path;
-    int rand = Random().nextInt(10000);
-
-    // Im.Image image = Im.decodeImage(imageToCompress.readAsBytesSync());
-    // Im.copyResize(image, width: 500, height: 500);
-
-    // return new File('$path/img_$rand.jpg')
-    //   ..writeAsBytesSync(Im.encodeJpg(image, quality: 85));
-  }
-
-   */
 
   static int stateToNum(UserState userState) {
     switch (userState) {

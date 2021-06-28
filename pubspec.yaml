@@ -32,17 +32,17 @@ dependencies:
   firebase_auth:
   firebase_auth_web:
   cloud_firestore:
+  firebase_storage:
+  firebase_core :
   rxdart:
   image_picker:
   file_picker:
-  firebase_storage:
   location:
   cached_network_image:
   image:
   intl:
   splashscreen:
   location_web:
-  firebase_core :
   layout:
   permission_handler:
   emoji_picker:

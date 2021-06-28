@@ -7,12 +7,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
+import 'package:myteams/utils/customtile.dart';
 
 import '../widgets/cachedImage.dart';
 import '../widgets/call_pickup_layout.dart';
 import 'chatscreen.dart';
-import 'widgets/cachedImage.dart';
-
 
 class SearchScreen extends StatefulWidget {
   @override
@@ -85,7 +84,9 @@ class _SearchScreenState extends State<SearchScreen> {
     );
   }
 
-  buildSuggestions(String query) {
+
+//returns list view of queried users
+  searchUserList(String query) {
     final List<UserHelper> suggestionList = query.isEmpty
     ? []
     : userList != null?
@@ -112,7 +113,7 @@ class _SearchScreenState extends State<SearchScreen> {
     name: suggestionList[index].name,
     username: suggestionList[index].username);
 
-    var profilePhoto;
+
     return CustomTile(
     mini: false,
     onTap: () {
@@ -125,7 +126,7 @@ class _SearchScreenState extends State<SearchScreen> {
     },
     leading: CachedImage(
     searchedUser.profilePhoto,
-    radius: 25,
+    radius: 35,
     isRound: true,
     ),
     // leading: CircleAvatar(
@@ -135,13 +136,13 @@ class _SearchScreenState extends State<SearchScreen> {
     title: Text(
     searchedUser.username,
     style: TextStyle(
-    color: Colors.white,
+    color: Colors.grey,
     fontWeight: FontWeight.bold,
     ),
     ),
     subtitle: Text(
     searchedUser.name,
-    style: TextStyle(color: Colors.grey),
+    style: TextStyle(color: Colors.black),
     ),
     );
     }),
@@ -156,7 +157,7 @@ class _SearchScreenState extends State<SearchScreen> {
         appBar: searchAppBar(context),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 20),
-          child: buildSuggestions(query),
+          child: searchUserList(query),
         ),
       ),
     );

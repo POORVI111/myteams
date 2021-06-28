@@ -6,6 +6,8 @@ import 'package:flutter/scheduler.dart';
 import 'package:myteams/enum/user_state.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
+import 'package:myteams/screens/notifications/NotificationScreen.dart';
+import 'package:myteams/screens/teams/TeamsListScreen.dart';
 import 'package:provider/provider.dart';
 
 import '../resources/localDB/LogRepository.dart';

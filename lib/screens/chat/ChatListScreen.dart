@@ -32,7 +32,10 @@ class ChatListScreen extends StatelessWidget {
                 color: Colors.black,
               ),
               onPressed: () {
-                Navigator.pushNamed(context, "/searchscreen");
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SearchScreen()),
+                );
               },
             ),
             IconButton(
@@ -68,7 +71,8 @@ class ChatListContainer extends StatelessWidget {
               var docList = snapshot.data.docs;
 
               if (docList.isEmpty) {
-                return InitialChatList(
+                //when user has no chats with anyone
+                return InitialList(
                   heading: "This is where all the contacts are listed",
                   subtitle:
                   "Search for your friends and family to start calling or chatting with them",

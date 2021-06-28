@@ -3,9 +3,9 @@ import 'package:myteams/enum/user_state.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
+import 'package:myteams/utils/customappbar.dart';
 import 'package:provider/provider.dart';
 
-import '../../customappbar.dart';
 import '../loginscreen.dart';
 import 'cachedImage.dart';
 
@@ -20,7 +20,7 @@ class UserDetailsContainer extends StatelessWidget {
     signOut() async {
       final bool isLoggedOut = await AuthMethods().signOut();
       if (isLoggedOut) {
-        // set userState to offline as the user logs out'
+        // set userState to offline as the user logs out
         authMethods.setUserState(
           userId: userProvider.getUser.uid,
           userState: UserState.Offline,

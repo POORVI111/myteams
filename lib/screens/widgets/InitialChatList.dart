@@ -1,6 +1,9 @@
+/*
+this is viewed when no contacts. initial chat list display
+ */
 import 'package:flutter/material.dart';
 
-import '../searchscreen.dart';
+import '../chat/searchscreen.dart';
 
 
 class InitialList extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
+import 'package:myteams/utils/utilities.dart';
 import 'package:provider/provider.dart';
 
-import '../../utilities.dart';
 import 'userDetailsContainer.dart';
 
 class UserProfileWidget extends StatelessWidget {

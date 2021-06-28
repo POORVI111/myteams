@@ -1,3 +1,6 @@
+/*
+A flutter library to show images from the internet and keep them in the cache directory.
+ */
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/constants/strings.dart';
