@@ -71,6 +71,7 @@ class _BroadcastPageState extends State<BroadcastPage> {
   /// Add agora event handlers
   void _addAgoraEventHandlers() {
     _engine.setEventHandler(RtcEngineEventHandler(error: (code) {
+
       setState(() {
         final info = 'onError: $code';
         _infoStrings.add(info);
@@ -105,12 +106,32 @@ class _BroadcastPageState extends State<BroadcastPage> {
     }));
   }
 
+Widget _liveuser()
+{
+  return Container(
+    alignment: Alignment.topLeft,
+    padding: const EdgeInsets.symmetric(vertical: 50),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+
+        Icon(Icons.remove_red_eye_sharp),
+        Text(_users.length.toString()),
+
+
+
+      ],
+
+    )
+  );
+}
+
   Widget _toolbar() {
     return widget.isBroadcaster
         ? Container(
       alignment: Alignment.bottomCenter,
       padding: const EdgeInsets.symmetric(vertical: 48),
-      child: Row(
+        child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           RawMaterialButton(
@@ -166,8 +187,12 @@ class _BroadcastPageState extends State<BroadcastPage> {
     )
         : Container(
       alignment: Alignment.bottomCenter,
+
       padding: EdgeInsets.only(bottom: 48),
-      child: RawMaterialButton(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+      RawMaterialButton(
         onPressed: _goToChatPage,
         child: Icon(
           Icons.message_rounded,
@@ -178,6 +203,20 @@ class _BroadcastPageState extends State<BroadcastPage> {
         elevation: 2.0,
         fillColor: Colors.white,
         padding: const EdgeInsets.all(12.0),
+      ),
+      RawMaterialButton(
+        onPressed: () => _onCallEnd(context),
+        child: Icon(
+          Icons.call_end,
+          color: Colors.white,
+          size: 35.0,
+        ),
+        shape: CircleBorder(),
+        elevation: 2.0,
+        fillColor: Colors.redAccent,
+        padding: const EdgeInsets.all(15.0),
+      ),
+    ],
       ),
     );
   }
@@ -190,6 +229,8 @@ class _BroadcastPageState extends State<BroadcastPage> {
           children: <Widget>[
             _viewRows(),
             _toolbar(),
+            _liveuser(),
+
           ],
         ),
       ),

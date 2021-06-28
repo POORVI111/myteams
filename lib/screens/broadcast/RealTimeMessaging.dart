@@ -3,6 +3,7 @@ import 'package:agora_rtm/agora_rtm.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/constants/configs.dart';
 
+
 class RealTimeMessaging extends StatefulWidget {
   final String channelName;
   final String userName;
@@ -19,6 +20,7 @@ class RealTimeMessaging extends StatefulWidget {
 class _RealTimeMessagingState extends State<RealTimeMessaging> {
   bool _isLogin = false;
   bool _isInChannel = false;
+
 
   final _channelMessageController = TextEditingController();
 
@@ -56,7 +58,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
   void _createClient() async {
     _client = await AgoraRtmClient.createInstance(APP_ID);
     _client.onMessageReceived = (AgoraRtmMessage message, String peerId) {
-      _logPeer(message.text);
+      _logPeer(message.text, peerId.toString());
     };
 
     _client.onConnectionStateChanged = (int state, int reason) {
@@ -88,7 +90,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
       print("Member left: " + member.userId + ', channel: ' + member.channelId);
     };
     channel.onMessageReceived = (AgoraRtmMessage message, AgoraRtmMember member) {
-      _logPeer(message.text);
+      _logPeer(message.text, member.toString());
     };
     return channel;
   }
@@ -97,6 +99,8 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
     if (!_isLogin || !_isInChannel) {
       return Container();
     }
+
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
@@ -236,7 +240,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
     }
   }
 
-  void _logPeer(String info){
+  void _logPeer(String info, String member){
     info = '%'+info;
     print(info);
     if(mounted) {

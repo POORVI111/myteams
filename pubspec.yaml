@@ -51,6 +51,7 @@ dependencies:
   agora_rtm:
   hive:
   path_provider:
+  date_format:
 
 
 

@@ -11,6 +11,7 @@ class TeamMethods {
   final CollectionReference _userCollection =
   _firestore.collection(USERS_COLLECTION);
 
+
   DocumentReference getTeamsDocument({String userid, String teamid}) =>
       _userCollection
           .doc(userid).collection(TEAMS_COLLECTION).doc(teamid);
@@ -22,6 +23,7 @@ class TeamMethods {
     await addToUserTeam(teamId, currentTime, userId);
 
   }
+
 
   Future<void> addToUserTeam(
       String teamId,
@@ -44,26 +46,17 @@ class TeamMethods {
     }
   }
 
+
   Future<void> createteam(String teamName, UserHelper user) async {
-  //  String retVal = "error";
     List<String> members = List();
 
-
     try {
-
-
-
       DocumentReference _docRef;
-
-
       _docRef = await _firestore.collection(TEAMS_COLLECTION).add({
         'name': teamName.trim(),
         'leader': user.uid,
         'members': members,
         'teamCreated': Timestamp.now(),
-
-
-
       });
       await addToTeams(userId: user.uid, teamId: _docRef.id);
 
@@ -71,14 +64,12 @@ class TeamMethods {
     } catch (e) {
       print(e);
     }
-
-   // return retVal;
   }
+
 
   Future<String> jointeam(String teamId, UserHelper user) async {
     String retVal = "error";
     List<String> members = List();
-
 
     try {
       members.add(user.uid);

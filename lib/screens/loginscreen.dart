@@ -34,7 +34,11 @@ class LoginScreenState extends State<LoginScreen> {
          Padding(
            padding:const EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
            child:ClipOval(
-             child:Image.asset('images/introimage.jpg'),
+
+             child: Container(
+               height: 240.0, width: 240.0,
+                 child: Image.asset('images/introimage.jpg')
+             )
            ),
          ),
 

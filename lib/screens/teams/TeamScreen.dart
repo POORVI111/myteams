@@ -1,25 +1,20 @@
-import 'dart:io';
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:date_format/date_format.dart';
 import 'package:emoji_picker/emoji_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/enum/view_state.dart';
-import 'package:myteams/models/message.dart';
+import 'package:myteams/models/post.dart';
 import 'package:myteams/models/team.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
-import 'package:myteams/resources/chat_methods.dart';
 import 'package:myteams/resources/provider/UploadImageProvider.dart';
-import 'package:myteams/resources/storage_methods.dart';
+import 'package:myteams/resources/teams_post_methods.dart';
+import 'package:myteams/screens/widgets/cachedImage.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
-import 'package:myteams/utils/callutils.dart';
 import 'package:myteams/utils/customappbar.dart';
-import 'package:myteams/utils/customtile.dart';
-import 'package:myteams/utils/permissions.dart';
-import 'package:myteams/utils/utilities.dart';
 import 'package:provider/provider.dart';
 
 
@@ -38,16 +33,16 @@ class _TeamScreenState extends State<TeamScreen> {
   ImageUploadProvider _imageUploadProvider;
 
   final AuthMethods _authMethods = AuthMethods();
+  final PostMethods _postMethods=PostMethods();
 
   TextEditingController textFieldController = TextEditingController();
   FocusNode textFieldFocus = FocusNode();
 
 
-  UserHelper sender;
+  UserHelper sender,postsender;
   String _currentUserId;
   bool isWriting = false;
   bool showEmojiPicker = false;
-
   @override
   void initState() {
     super.initState();
@@ -86,15 +81,14 @@ class _TeamScreenState extends State<TeamScreen> {
 
     return PickupLayout(
       scaffold: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Color(0xFFF6F6F6),
         appBar: customAppBar(context),
         body: Column(
           children: <Widget>[
-           /* Flexible(
-              child: messageList(),
+             Flexible(
+              child: postList(),
             ),
 
-            */
             _imageUploadProvider.getViewState == ViewState.LOADING
                 ? Container(
               alignment: Alignment.centerRight,
@@ -127,13 +121,44 @@ class _TeamScreenState extends State<TeamScreen> {
       numRecommended: 50,
     );
   }
-/*
-  Widget messageList() {
+
+   getPost(Post post) {
+    return post.type != MESSAGE_TYPE_IMAGE
+        ? Text(
+      post.message,
+      style: TextStyle(
+        color: Colors.black,
+        fontSize: 16.0,
+      ),
+    )
+        : post.photoUrl != null
+        ? CachedImage(
+      post.photoUrl,
+      height: 250,
+      width: 250,
+      radius: 10,
+    )
+        : Text("Url was null");
+  }
+
+  Widget receiverLayout(Post message) {
+    return Container(
+      color: Colors.white,
+      alignment: Alignment.topLeft,
+
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: getPost(message),
+      ),
+    );
+  }
+  Widget postList()
+  {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
-          .collection(MESSAGES_COLLECTION)
-          .doc(_currentUserId)
-          .collection(widget.receiver.uid)
+          .collection(POSTS_COLLECTION)
+          .doc(widget.team.id)
+          .collection('posts')
           .orderBy(TIMESTAMP_FIELD, descending: true)
           .snapshots(),
       builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -147,93 +172,74 @@ class _TeamScreenState extends State<TeamScreen> {
           reverse: true,
           itemCount: snapshot.data.docs.length,
           itemBuilder: (context, index) {
-
-            return chatMessageItem(snapshot.data.docs[index]);
+            return chatPostItem(snapshot.data.docs[index]);
           },
         );
       },
     );
   }
 
- Widget chatMessageItem(DocumentSnapshot snapshot) {
-    Message _message = Message.fromMap(snapshot.data());
+  buildPostHeader(Post post) {
+    String dateLong = formatDate(
+        DateTime.fromMillisecondsSinceEpoch(post.timestamp.millisecondsSinceEpoch),
+        [yyyy, ' ', MM, ' ', dd, ', ', hh, ':', nn, ' ', am]);
+    return FutureBuilder<UserHelper>(
+      future: _authMethods.getUserDetailsById(post.senderId),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          UserHelper user = snapshot.data;
 
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 15),
-      child: Container(
-        alignment: _message.senderId == _currentUserId
-            ? Alignment.centerRight
-            : Alignment.centerLeft,
-        child: _message.senderId == _currentUserId
-            ? senderLayout(_message)
-            : receiverLayout(_message),
-      ),
+          return Container(
+            color: Colors.white,
+            child: ListTile(
+              leading: CachedImage(
+                user.profilePhoto,
+                isRound: true,
+                radius: 40,
+              ),
+              title: GestureDetector(
+                onTap: () =>{},
+                child: Text(
+                  sender.uid==user.uid ?"You" : user.name,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              subtitle: Text(dateLong),
+              trailing: IconButton(
+                onPressed: () => {},
+                icon: Icon(Icons.more_vert),
+              ),
+            ),
+          );
+        }
+        return Center(
+          child: CircularProgressIndicator(),
+        );
+      },
     );
+
+
+
   }
 
-  Widget senderLayout(Message message) {
-    Radius messageRadius = Radius.circular(10);
 
+  Widget chatPostItem(DocumentSnapshot snapshot) {
+    Post _post = Post.fromMap(snapshot.data());
     return Container(
-      margin: EdgeInsets.only(top: 12),
-      constraints:
-      BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.65),
-      decoration: BoxDecoration(
-        color: Colors.black,//sender
-        borderRadius: BorderRadius.only(
-          topLeft: messageRadius,
-          topRight: messageRadius,
-          bottomLeft: messageRadius,
-        ),
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          buildPostHeader(_post),
+          receiverLayout(_post),
+        ],
       ),
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: getMessage(message),
-      ),
-    );
+      );
   }
 
-  getMessage(Message message) {
-    return message.type != MESSAGE_TYPE_IMAGE
-        ? Text(
-      message.message,
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 16.0,
-      ),
-    )
-        : message.photoUrl != null
-        ? CachedImage(
-      message.photoUrl,
-      height: 250,
-      width: 250,
-      radius: 10,
-    )
-        : Text("Url was null");
-  }
-
-  Widget receiverLayout(Message message) {
-    Radius messageRadius = Radius.circular(10);
-
-    return Container(
-      margin: EdgeInsets.only(top: 12),
-      constraints:
-      BoxConstraints(maxWidth: MediaQuery.of(context).size.width * 0.65),
-      decoration: BoxDecoration(
-        color: Colors.deepPurple,//receiverColor,
-        borderRadius: BorderRadius.only(
-          bottomRight: messageRadius,
-          topRight: messageRadius,
-          bottomLeft: messageRadius,
-        ),
-      ),
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: getMessage(message),
-      ),
-    );
-  }
-*/
   Widget chatControls() {
     setWritingTo(bool val) {
       setState(() {
@@ -293,17 +299,18 @@ class _TeamScreenState extends State<TeamScreen> {
             );
           });
     }
-/*
-    sendMessage() {
+
+    sendPost() {
       var text = textFieldController.text;
 
-      Message _message = Message(
-        receiverId: widget.receiver.uid,
+      Post _post = Post(
         senderId: sender.uid,
         message: text,
         timestamp: Timestamp.now(),
         type: 'text',
+        teamId: widget.team.id,
       );
+
 
       setState(() {
         isWriting = false;
@@ -311,11 +318,9 @@ class _TeamScreenState extends State<TeamScreen> {
 
       textFieldController.text = "";
 
-      _chatMethods.addMessageToDb(_message);
+      _postMethods.addPostToDb(_post);
     }
 
-
- */
     return Container(
       padding: EdgeInsets.all(10),
       child: Row(
@@ -395,7 +400,7 @@ class _TeamScreenState extends State<TeamScreen> {
               ? Container()
               : GestureDetector(
             child: Icon(Icons.camera_alt),
-           // onTap: () => pickImage(source: ImageSource.gallery),
+            // onTap: () => pickImage(source: ImageSource.gallery),
           ),
           isWriting
               ? Container(
@@ -408,7 +413,7 @@ class _TeamScreenState extends State<TeamScreen> {
                   Icons.send,
                   size: 15,
                 ),
-                onPressed: () => {},//sendMessage(),
+                onPressed: () => sendPost(),
               ))
               : Container()
         ],
@@ -467,55 +472,4 @@ class _TeamScreenState extends State<TeamScreen> {
   }
 }
 
-class ModalTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Function onTap;
 
-  const ModalTile({
-    @required this.title,
-    @required this.subtitle,
-    @required this.icon,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      child: CustomTile(
-        mini: false,
-        onTap: onTap,
-        leading: Container(
-          margin: EdgeInsets.only(right: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-          ),
-          padding: EdgeInsets.all(10),
-          child: Icon(
-            icon,
-            color: Colors.grey,
-            size: 38,
-          ),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14,
-          ),
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 18,
-          ),
-        ),
-      ),
-    );
-  }
-}
