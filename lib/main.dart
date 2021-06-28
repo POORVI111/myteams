@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/resources/auth_methods.dart';
-import 'package:myteams/resources/provider/upload_image_provier.dart';
+import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
 import 'package:myteams/screens/homescreen.dart';
 import 'package:myteams/screens/loginscreen.dart';

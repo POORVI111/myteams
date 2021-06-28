@@ -64,7 +64,6 @@ class _NotifListContainerState extends State<NotifListContainer> {
         if (snapshot.hasData) {
           List<dynamic> logList = snapshot.data;
 
-          if (logList.isNotEmpty) {
             return ListView.builder(
               itemCount: logList.length,
               itemBuilder: (context, i) {
@@ -120,11 +119,7 @@ class _NotifListContainerState extends State<NotifListContainer> {
               },
             );
           }
-          return InitialList(
-            heading: "This is where all your call logs are listed",
-            subtitle: "Calling people all over the world with just one click",
-          );
-        }
+
 
         return InitialList(
           heading: "This is where all your call logs are listed",
