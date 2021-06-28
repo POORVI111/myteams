@@ -1,3 +1,7 @@
+/*
+ This is to display chat list screen
+ */
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/models/contact.dart';

@@ -1,3 +1,8 @@
+/*
+this is pickup screen active only when user gets a video calls
+*/
+
+
 import 'package:flutter/material.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/models/call.dart';

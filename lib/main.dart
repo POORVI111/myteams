@@ -50,6 +50,7 @@ class MyAppState extends State<MyApp> {
             primaryTextTheme: TextTheme(
                 title: TextStyle(color: Colors.black, fontFamily: "Aveny")),
             textTheme: TextTheme(title: TextStyle(color: Colors.black))),
+
         home: FutureBuilder(
           future: _authmethods.getCurrentUser(),
           builder: (context, AsyncSnapshot<User> snapshot) {

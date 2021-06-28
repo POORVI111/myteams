@@ -1,4 +1,7 @@
-/* screen for search users*/
+/*
+this is created to search users
+*/
+
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

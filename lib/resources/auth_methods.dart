@@ -1,5 +1,5 @@
 /*
-           This is for fetching user data from firebase
+     This is for fetching user data from firebase
  */
 
 

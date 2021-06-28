@@ -1,3 +1,8 @@
+/*
+this is for uploading image to firebase storage
+ */
+
+
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
