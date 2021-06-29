@@ -29,9 +29,6 @@ class PickupScreen extends StatefulWidget {
 
 class _PickupScreenState extends State<PickupScreen> {
   final CallMethods callMethods = CallMethods();
-  // final LogRepository logRepository = LogRepository(isHive: true);
-  // final LogRepository logRepository = LogRepository(isHive: false);
-
   bool isCallMissed = true;
 
   addToLocalStorage({@required String callStatus}) {
@@ -65,7 +62,7 @@ class _PickupScreenState extends State<PickupScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Incoming...",
+              "Incoming video call...",
               style: TextStyle(
                 fontSize: 30,
               ),

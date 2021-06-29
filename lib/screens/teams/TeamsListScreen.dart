@@ -1,6 +1,6 @@
 
 /*
- This is to display teams screen
+ This is to display all the user's team
  */
 
 
@@ -64,9 +64,7 @@ class TeamsListScreen extends StatelessWidget {
                           context,
                               MaterialPageRoute(builder: (context) => CreateTeam()),
                         );
-
-
-                      },
+                          },
                            ),
                           Padding(
                            padding: EdgeInsets.only(
@@ -74,10 +72,11 @@ class TeamsListScreen extends StatelessWidget {
                            ),
                             child: Text(
                             "Create Team",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
+                          style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18.0,
                     ),
+
                   ),
                 ),
 
@@ -104,7 +103,7 @@ class TeamsListScreen extends StatelessWidget {
                           padding: EdgeInsets.only(
                             left: 10.0,
                            ),
-                         child: Text(
+                           child: Text(
                          "Join Team",
                           style: TextStyle(
                          color: Colors.black,

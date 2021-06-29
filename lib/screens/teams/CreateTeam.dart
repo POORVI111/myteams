@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/teams_methods.dart';
+import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 
 
 class CreateTeam extends StatefulWidget {
@@ -25,28 +26,33 @@ class _CreateTeamState extends State<CreateTeam> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _scaffoldKey,
-      appBar: AppBar(
-        title: Text('Create Team',
+     return PickupLayout(
+        scaffold:Scaffold(
+
+         key: _scaffoldKey,
+         appBar: AppBar(
+           centerTitle: true,
+           backgroundColor: Colors.white,
+           title: Text('Create Team',
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
-      body: ListView(
-        physics: BouncingScrollPhysics(),
+        body: ListView(
+          physics: BouncingScrollPhysics(),
         children: <Widget>[
+
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(left:10.0, top: 50.0),
             child: Text(
-              'Name',
+              'Name your team',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
+              padding: EdgeInsets.only(left: 10, right:10),
               child: TextField(
                 controller: nameController,
                 decoration: InputDecoration(
-                  hintText: 'Name your team',
+                  hintText: 'Enter name',
                   hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
                   border: OutlineInputBorder(),
                   focusedBorder: OutlineInputBorder(
@@ -57,7 +63,7 @@ class _CreateTeamState extends State<CreateTeam> {
               )),
 
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: FlatButton(
               onPressed: createTeam,
               child: Text('Create Team',
@@ -66,19 +72,20 @@ class _CreateTeamState extends State<CreateTeam> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5.0),
                   side: BorderSide(color: Theme.of(context).accentColor)),
-            ),
-          )
-        ],
-      ),
-    );
+              ),
+            )
+          ],
+         ),
+        ),
+     );
   }
 
-  // This will create community
+  // This will create team
   createTeam() async {
-    String commName = nameController.text;
-    if (commName.isEmpty ||
-        commName.length < 3 ||
-        commName.length > 25) {
+    String teamName = nameController.text;
+    if (teamName.isEmpty ||
+        teamName.length < 3 ||
+        teamName.length > 25) {
       await showAlertDialog(context);
       return;
     }
@@ -100,19 +107,19 @@ class _CreateTeamState extends State<CreateTeam> {
     try {
      UserHelper user=await _authMethods.getUserDetails();
 
-     await _teamMethods.createteam(commName,user);
+     await _teamMethods.createteam(teamName,user);
 
       _scaffoldKey.currentState.hideCurrentSnackBar();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
-        content: Text('Community creation done.'),
+        content: Text('Team creation done.'),
       ));
     } catch (e) {
       print(e.toString());
       _scaffoldKey.currentState.hideCurrentSnackBar();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
-        content: Text('Community creation failed.'),
+        content: Text('Team creation failed.'),
       ));
     }
     Navigator.pop(context);
@@ -133,7 +140,7 @@ class _CreateTeamState extends State<CreateTeam> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Community name should be alphanumeric"),
+      title: Text("Team name should be alphanumeric"),
       content: Text(
           "No special characters or spaces allowed. Length should be between 3 and 25 (inclusive)"),
       actions: [

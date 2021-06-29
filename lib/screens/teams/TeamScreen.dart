@@ -1,3 +1,8 @@
+/*
+ this will display inside of particular team
+ */
+
+
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';

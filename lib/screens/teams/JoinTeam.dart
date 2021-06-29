@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/teams_methods.dart';
+import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 
 
 class JoinTeam extends StatefulWidget {
@@ -22,9 +23,11 @@ class _JoinTeamState extends State<JoinTeam> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PickupLayout(
+        scaffold: Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         title: Text('Join Team',
             style: TextStyle(fontWeight: FontWeight.bold)),
       ),
@@ -32,14 +35,14 @@ class _JoinTeamState extends State<JoinTeam> {
         physics: BouncingScrollPhysics(),
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(left:10.0, top: 50.0),
             child: Text(
-              'Enter code to join',
+              'Enter Code to Join',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
           Padding(
-              padding: EdgeInsets.only(left: 8, right: 8),
+              padding: EdgeInsets.only(left: 10, right: 10),
               child: TextField(
                 controller: nameController,
                 decoration: InputDecoration(
@@ -54,9 +57,9 @@ class _JoinTeamState extends State<JoinTeam> {
               )),
 
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(10.0),
             child: FlatButton(
-              onPressed: createCommunity,
+              onPressed: createTeam,
               child: Text('Join team',
                   style: TextStyle(
                       color: Theme.of(context).accentColor, fontSize: 18)),
@@ -67,13 +70,14 @@ class _JoinTeamState extends State<JoinTeam> {
           )
         ],
       ),
+     ),
     );
   }
 
-  // This will create community
-  createCommunity() async {
-    String commName = nameController.text;
-    if (commName.isEmpty
+  // This will create team
+  createTeam() async {
+    String teamName = nameController.text;
+    if (teamName.isEmpty
          ) {
       await showAlertDialog(context);
       return;
@@ -96,19 +100,19 @@ class _JoinTeamState extends State<JoinTeam> {
     try {
       UserHelper user=await _authMethods.getUserDetails();
 
-      await _teamMethods.jointeam(commName,user);
+      await _teamMethods.jointeam(teamName,user);
 
       _scaffoldKey.currentState.hideCurrentSnackBar();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
-        content: Text('Community creation done.'),
+        content: Text('Team creation done.'),
       ));
     } catch (e) {
       print(e.toString());
       _scaffoldKey.currentState.hideCurrentSnackBar();
       _scaffoldKey.currentState.showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
-        content: Text('Community creation failed.'),
+        content: Text('Team creation failed.'),
       ));
     }
     Navigator.pop(context);
@@ -120,7 +124,7 @@ class _JoinTeamState extends State<JoinTeam> {
 
   // This will show alert dialogue in case of error
   showAlertDialog(BuildContext context) async {
-    Widget okButton = FlatButton(
+    Widget okButton = TextButton(
       child: Text("OK"),
       onPressed: () {
         Navigator.of(context).pop();

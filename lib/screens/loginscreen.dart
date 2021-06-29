@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:myteams/resources/auth_methods.dart';
+import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 
 import 'broadcast/JoinMeet.dart';
 import 'homescreen.dart';
@@ -20,7 +21,9 @@ class LoginScreenState extends State<LoginScreen> {
 
 
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PickupLayout(
+        scaffold:
+     Scaffold(
       appBar: AppBar(
           backgroundColor: new Color(0xfff8faf8),
           centerTitle: true,
@@ -102,7 +105,7 @@ class LoginScreenState extends State<LoginScreen> {
          ),
     ],
     ),
-
+     ),
       );
 
   }
