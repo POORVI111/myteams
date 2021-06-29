@@ -1,12 +1,10 @@
-
-
-
 import 'dart:io';
 import 'dart:ui';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:emoji_picker/emoji_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/enum/view_state.dart';
@@ -25,6 +23,8 @@ import 'package:provider/provider.dart';
 
 import '../../utils/callutils.dart';
 import '../widgets/cachedImage.dart';
+import 'ShareDoodle/DrawingScreen.dart';
+
 
 
 class ChatScreen extends StatefulWidget {
@@ -128,6 +128,23 @@ class _ChatScreenState extends State<ChatScreen> {
       recommendKeywords: ["face", "happy", "party", "sad"],
       numRecommended: 50,
     );
+  }
+  void openDoodleArea(var context) async {
+    MaterialPageRoute pageRoute = MaterialPageRoute(
+      builder: (ctx) => DrawingScreen(),
+    );
+
+    var imageBytes = await Navigator.of(context).push(pageRoute);
+
+    if (imageBytes == null) {
+      return;
+    }
+
+    _storageMethods.uploadDoodle(
+        bytes: imageBytes,
+        receiverId: widget.receiver.uid,
+        senderId: _currentUserId,
+        imageUploadProvider: _imageUploadProvider);
   }
 
   Widget messageList() {
@@ -290,26 +307,13 @@ class _ChatScreenState extends State<ChatScreen> {
                         subtitle: "Share files",
                         icon: Icons.tab,
                       ),
+
                       ModalTile(
-                        title: "Contact",
-                        subtitle: "Share contacts",
-                        icon: Icons.contacts,
+                        title: "Doodle",
+                        subtitle: "Share your scribbles",
+                        icon: FontAwesomeIcons.pencilRuler,
+                        onTap: () => openDoodleArea(context),
                       ),
-                      ModalTile(
-                        title: "Location",
-                        subtitle: "Share a location",
-                        icon: Icons.add_location,
-                      ),
-                      ModalTile(
-                        title: "Schedule Call",
-                        subtitle: "Arrange a call and get reminders",
-                        icon: Icons.schedule,
-                      ),
-                      ModalTile(
-                        title: "Create Poll",
-                        subtitle: "Share polls",
-                        icon: Icons.poll,
-                      )
                     ],
                   ),
                 ),

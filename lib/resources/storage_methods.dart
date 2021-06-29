@@ -56,4 +56,40 @@ class StorageMethods {
 
     chatMethods.setImageMsg(url, receiverId, senderId);
   }
+
+  Future<String> uploadDoodleToStorage(var bytes) async {
+
+    try {
+      _storageReference = FirebaseStorage.instance
+          .ref()
+          .child('${DateTime.now().millisecondsSinceEpoch}');
+      UploadTask storageUploadTask =
+      _storageReference.putData(bytes);
+      var url = await (await storageUploadTask).ref.getDownloadURL();
+      // print(url);
+      return url;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  void uploadDoodle({
+    @required var bytes,
+    @required String receiverId,
+    @required String senderId,
+    @required ImageUploadProvider imageUploadProvider,
+  }) async {
+    final ChatMethods chatMethods = ChatMethods();
+
+    // Set some loading value to db and show it to user
+    imageUploadProvider.setToLoading();
+
+    // Get url from the image bucket
+    String url = await uploadDoodleToStorage(bytes);
+
+    // Hide loading
+    imageUploadProvider.setToIdle();
+
+    chatMethods.setImageMsg(url, receiverId, senderId);
+  }
 }

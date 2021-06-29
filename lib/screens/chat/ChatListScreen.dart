@@ -10,7 +10,6 @@ import 'package:myteams/resources/provider/userprovider.dart';
 import 'package:myteams/screens/widgets/ContactView.dart';
 import 'package:myteams/screens/widgets/HelperAppBar.dart';
 import 'package:myteams/screens/widgets/InitialChatList.dart';
-import 'package:myteams/screens/widgets/newChatButton.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/call_pickup_layout.dart';
@@ -47,7 +46,7 @@ class ChatListScreen extends StatelessWidget {
             ),
           ],
         ),
-        floatingActionButton: NewChatButton(),
+
         body: ChatListContainer(),
       ),
     );

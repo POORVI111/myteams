@@ -52,7 +52,9 @@ dependencies:
   hive:
   path_provider:
   date_format:
-
+  font_awesome_flutter:
+  flutter_speed_dial:
+  flutter_colorpicker: ^0.4.0
 
 
 dev_dependencies:
