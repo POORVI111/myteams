@@ -175,13 +175,13 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
                               textAlign: TextAlign.right,
                               style: TextStyle(color: Colors.black),
                             ),
-                            Text(
+                            /*Text(
                               widget.userName,
                               textAlign: TextAlign.right,
                               style: TextStyle(
                                 fontSize: 10,
                               ),
-                            )
+                            ) */
                           ],
                         ),
                       ),

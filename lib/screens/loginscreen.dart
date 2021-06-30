@@ -21,8 +21,7 @@ class LoginScreenState extends State<LoginScreen> {
 
 
   Widget build(BuildContext context) {
-    return PickupLayout(
-        scaffold:
+    return
      Scaffold(
       appBar: AppBar(
           backgroundColor: new Color(0xfff8faf8),
@@ -105,7 +104,6 @@ class LoginScreenState extends State<LoginScreen> {
          ),
     ],
     ),
-     ),
       );
 
   }

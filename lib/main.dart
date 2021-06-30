@@ -54,7 +54,7 @@ class MyAppState extends State<MyApp> {
                 HomeScreen();
             } else {
               return SplashScreen(
-                seconds: 6,
+                seconds: 4,
                 navigateAfterSeconds: LoginScreen(),
                 title: new Text('Microsoft Teams',textScaleFactor: 2,),
                 image: new Image.asset('images/introimage.jpg', height:400),

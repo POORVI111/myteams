@@ -1,3 +1,6 @@
+/*
+this is user model
+ */
 class UserHelper {
   String uid;
   String name;

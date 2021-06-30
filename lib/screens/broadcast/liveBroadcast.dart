@@ -106,25 +106,6 @@ class _BroadcastPageState extends State<BroadcastPage> {
     }));
   }
 
-Widget _liveuser()
-{
-  return Container(
-    alignment: Alignment.topLeft,
-    padding: const EdgeInsets.symmetric(vertical: 50),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-
-        Icon(Icons.remove_red_eye_sharp),
-        Text(_users.length.toString()),
-
-
-
-      ],
-
-    )
-  );
-}
 
   Widget _toolbar() {
     return widget.isBroadcaster
@@ -229,8 +210,6 @@ Widget _liveuser()
           children: <Widget>[
             _viewRows(),
             _toolbar(),
-            _liveuser(),
-
           ],
         ),
       ),
