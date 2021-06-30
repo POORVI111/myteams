@@ -22,9 +22,6 @@ import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 import 'package:myteams/utils/customappbar.dart';
 import 'package:provider/provider.dart';
 
-
-
-
 class TeamScreen extends StatefulWidget {
   final Team team;
 
@@ -48,6 +45,7 @@ class _TeamScreenState extends State<TeamScreen> {
   String _currentUserId;
   bool isWriting = false;
   bool showEmojiPicker = false;
+
   @override
   void initState() {
     super.initState();
@@ -65,7 +63,6 @@ class _TeamScreenState extends State<TeamScreen> {
   }
 
   showKeyboard() => textFieldFocus.requestFocus();
-
   hideKeyboard() => textFieldFocus.unfocus();
 
   hideEmojiContainer() {
@@ -127,6 +124,7 @@ class _TeamScreenState extends State<TeamScreen> {
     );
   }
 
+ //get post finally in layout
    getPost(Post post) {
     return post.type != MESSAGE_TYPE_IMAGE
         ? Text(
@@ -146,17 +144,29 @@ class _TeamScreenState extends State<TeamScreen> {
         : Text("Url was null");
   }
 
-  Widget receiverLayout(Post message) {
-    return Container(
-      color: Colors.white,
-      alignment: Alignment.topLeft,
+//to uplaod post in database
+  sendPost() {
+    var text = textFieldController.text;
 
-      child: Padding(
-        padding: EdgeInsets.all(10),
-        child: getPost(message),
-      ),
+    Post _post = Post(
+      senderId: sender.uid,
+      message: text,
+      timestamp: Timestamp.now(),
+      type: 'text',
+      teamId: widget.team.id,
     );
+
+
+    setState(() {
+      isWriting = false;
+    });
+
+    textFieldController.text = "";
+
+    _postMethods.addPostToDb(_post);
   }
+
+
   Widget postList()
   {
     return StreamBuilder(
@@ -183,6 +193,73 @@ class _TeamScreenState extends State<TeamScreen> {
       },
     );
   }
+  Widget chatPostItem(DocumentSnapshot snapshot) {
+    Post _post = Post.fromMap(snapshot.data());
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          buildPostHeader(_post),
+          receiverLayout(_post),
+        ],
+      ),
+    );
+  }
+
+  Widget receiverLayout(Post message) {
+    return Container(
+      color: Colors.white,
+      alignment: Alignment.topLeft,
+
+      child: Padding(
+        padding: EdgeInsets.all(10),
+        child: getPost(message),
+      ),
+    );
+  }
+
+ Widget LeadDialog(String teamid) {
+  return Dialog(
+    child: Container(
+      height: 200.0,
+      width: 100.0,
+      color: Colors.white,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Align(
+           alignment: Alignment.center,
+            child: Text(
+              'Share this code',
+              style:
+              TextStyle(color: Colors.black, fontSize: 22.0),
+            ),
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              'Let others join the team',
+              style:
+              TextStyle(color: Colors.black, fontSize: 22.0),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top:8.0),
+         child: Align(
+            alignment: Alignment.center,
+            child: Text(
+              teamid,
+              style:
+              TextStyle(color: Colors.blue, fontSize: 16.0),
+            ),
+          ),
+          ),
+        ],
+      ),
+    ),
+  );
+}
 
   buildPostHeader(Post post) {
     String dateLong = formatDate(
@@ -205,7 +282,7 @@ class _TeamScreenState extends State<TeamScreen> {
               title: GestureDetector(
                 onTap: () =>{},
                 child: Text(
-                  sender.uid==user.uid ?"You" : user.name,
+                  sender.uid==user.uid ? "You" : user.name,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -229,118 +306,17 @@ class _TeamScreenState extends State<TeamScreen> {
 
 
   }
-
-
-  Widget chatPostItem(DocumentSnapshot snapshot) {
-    Post _post = Post.fromMap(snapshot.data());
-    return Container(
-      padding: EdgeInsets.all(10.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          buildPostHeader(_post),
-          receiverLayout(_post),
-        ],
-      ),
-      );
-  }
-
   Widget chatControls() {
     setWritingTo(bool val) {
       setState(() {
         isWriting = val;
       });
     }
-
-    addMediaModal(context) {
-      showModalBottomSheet(
-          context: context,
-          elevation: 0,
-          backgroundColor: Colors.white,
-          builder: (context) {
-            return Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 15),
-                  child: Row(
-                    children: <Widget>[
-                      FlatButton(
-                        child: Icon(
-                          Icons.close,
-                        ),
-                        onPressed: () => Navigator.maybePop(context),
-                      ),
-                      Expanded(
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            "Content and tools",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Flexible(
-                  child: ListView(
-                    children: <Widget>[
-                      /*ModalTile(
-                        title: "Media",
-                        subtitle: "Share Photos and Video",
-                        icon: Icons.image,
-                        onTap: () => pickImage(source: ImageSource.gallery),
-                      ),
-
-                       */
-
-                    ],
-                  ),
-                ),
-              ],
-            );
-          });
-    }
-
-    sendPost() {
-      var text = textFieldController.text;
-
-      Post _post = Post(
-        senderId: sender.uid,
-        message: text,
-        timestamp: Timestamp.now(),
-        type: 'text',
-        teamId: widget.team.id,
-      );
-
-
-      setState(() {
-        isWriting = false;
-      });
-
-      textFieldController.text = "";
-
-      _postMethods.addPostToDb(_post);
-    }
-
     return Container(
       padding: EdgeInsets.all(10),
       child: Row(
         children: <Widget>[
-          GestureDetector(
-            onTap: () => addMediaModal(context),
-            child: Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                //gradient: Colors.f,//fabGradient,
-                shape: BoxShape.circle,
-              ),
-              child: Icon(Icons.add),
-            ),
-          ),
+
           SizedBox(
             width: 5,
           ),
@@ -425,6 +401,7 @@ class _TeamScreenState extends State<TeamScreen> {
       ),
     );
   }
+
 /*
   void pickImage({@required ImageSource source}) async {
     PickedFile selectedImage = await Utils.pickImage(source: source);
@@ -435,8 +412,7 @@ class _TeamScreenState extends State<TeamScreen> {
         imageUploadProvider: _imageUploadProvider);
   }
 
-
- */
+*/
   CustomAppBar customAppBar(context) {
     return CustomAppBar(
       leading: IconButton(
@@ -456,23 +432,20 @@ class _TeamScreenState extends State<TeamScreen> {
           icon: Icon(
             Icons.video_call,
           ),
-          onPressed:() {},/*() async =>
-          await Permissions.cameraAndMicrophonePermissionsGranted()
-              ? {}CallUtils.dial(
-            from: sender,
-            to: widget.receiver,
-            context: context,
-          )
-              : {},
-              */
+          onPressed:() {},
         ),
         IconButton(
           icon: Icon(
-            Icons.phone,
+            Icons.share,
           ),
-          onPressed: () {},
-        )
-      ],
+          onPressed:() { showDialog(
+    context: context,
+    builder: (BuildContext context) => LeadDialog(widget.team.id));
+
+    },
+
+    ),
+  ]
     );
   }
 }

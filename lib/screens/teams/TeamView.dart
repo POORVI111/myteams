@@ -3,11 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:myteams/models/team.dart';
 import 'package:myteams/models/userteam.dart';
-import 'package:myteams/resources/provider/userprovider.dart';
 import 'package:myteams/resources/teams_methods.dart';
 import 'package:myteams/utils/customtile.dart';
 import 'package:myteams/utils/utilities.dart';
-import 'package:provider/provider.dart';
 
 import 'TeamScreen.dart';
 
@@ -53,8 +51,6 @@ class ViewLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final UserProvider userProvider = Provider.of<UserProvider>(context);
-
     return CustomTile(
       mini: false,
       onTap: () => Navigator.push(
@@ -76,14 +72,7 @@ class ViewLayout extends StatelessWidget {
        (userteam != null ? userteam.name : null) != null ? userteam.name : "..",
        style:
        TextStyle(color: Colors.white, fontFamily: "Arial", fontSize: 19),
-     ), /*LastMessageContainer(
-        stream: _chatMethods.fetchLastMessageBetween(
-          senderId: userProvider.getUser.uid,
-          receiverId: contact.uid,
-        ),
-
-      ),
-       */
+     ),
       leading: Container(
         height: 40,
         width: 40,

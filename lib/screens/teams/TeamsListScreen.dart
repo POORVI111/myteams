@@ -147,7 +147,7 @@ class TeamListContainer extends StatelessWidget {
                 //when user has no chats with anyone
                 return InitialList(
                   heading: "This is where all the teams are listed",
-                  subtitle: "Search friends and family",
+                  subtitle: "Create new teams and join teams",
                 );
               }
               return ListView.builder(

@@ -14,9 +14,9 @@ import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/chat_methods.dart';
 import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/storage_methods.dart';
+import 'package:myteams/screens/widgets/ModalTile.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 import 'package:myteams/utils/customappbar.dart';
-import 'package:myteams/utils/customtile.dart';
 import 'package:myteams/utils/permissions.dart';
 import 'package:myteams/utils/utilities.dart';
 import 'package:provider/provider.dart';
@@ -191,7 +191,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget senderLayout(Message message) {
-    Radius messageRadius = Radius.circular(10);
+    Radius messageRadius = Radius.circular(5);
 
     return Container(
       margin: EdgeInsets.only(top: 12),
@@ -232,7 +232,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget receiverLayout(Message message) {
-    Radius messageRadius = Radius.circular(10);
+    Radius messageRadius = Radius.circular(5);
 
     return Container(
       margin: EdgeInsets.only(top: 12),
@@ -490,55 +490,3 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 }
 
-class ModalTile extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final IconData icon;
-  final Function onTap;
-
-  const ModalTile({
-    @required this.title,
-    @required this.subtitle,
-    @required this.icon,
-    this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      child: CustomTile(
-        mini: false,
-        onTap: onTap,
-        leading: Container(
-          margin: EdgeInsets.only(right: 10),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Colors.white,
-          ),
-          padding: EdgeInsets.all(10),
-          child: Icon(
-            icon,
-            color: Colors.grey,
-            size: 38,
-          ),
-        ),
-        subtitle: Text(
-          subtitle,
-          style: TextStyle(
-            color: Colors.grey,
-            fontSize: 14,
-          ),
-        ),
-        title: Text(
-          title,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: 18,
-          ),
-        ),
-      ),
-    );
-  }
-}
