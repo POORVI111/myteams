@@ -16,7 +16,7 @@ import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/storage_methods.dart';
 import 'package:myteams/screens/widgets/ModalTile.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
-import 'package:myteams/utils/customappbar.dart';
+import 'package:myteams/screens/widgets/customappbar.dart';
 import 'package:myteams/utils/permissions.dart';
 import 'package:myteams/utils/utilities.dart';
 import 'package:provider/provider.dart';

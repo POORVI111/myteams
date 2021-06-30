@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:myteams/models/team.dart';
 import 'package:myteams/models/userteam.dart';
 import 'package:myteams/resources/teams_methods.dart';
-import 'package:myteams/utils/customtile.dart';
+import 'package:myteams/screens/widgets/customtile.dart';
 import 'package:myteams/utils/utilities.dart';
 
 import 'TeamScreen.dart';

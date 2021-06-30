@@ -3,7 +3,7 @@ import 'package:myteams/enum/user_state.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
-import 'package:myteams/utils/customappbar.dart';
+import 'package:myteams/screens/widgets/customappbar.dart';
 import 'package:provider/provider.dart';
 
 import '../loginscreen.dart';

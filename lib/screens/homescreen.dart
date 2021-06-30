@@ -136,22 +136,25 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.notifications_none_outlined,
                       color: (currIndex== 0)
-                          ? Colors.deepPurple
+                          ? Colors.blue
                           : Colors.black),
+                   label: 'Notification',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.group_outlined,
                       color: (currIndex == 1)
-                          ? Colors.deepPurple
+                          ? Colors.blue
                           : Colors.black),
+                  label: 'Teams',
 
-                ),
+                  ),
+
                 BottomNavigationBarItem(
                   icon: Icon(Icons.chat_outlined,
                       color: (currIndex == 2)
-                          ? Colors.deepPurple
+                          ? Colors.blue
                           : Colors.black),
-
+                  label: 'Chat',
                 ),
               ],
               onTap: navigationTapped,

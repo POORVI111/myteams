@@ -38,7 +38,7 @@ class CustomTile extends StatelessWidget {
             Expanded(
               child: Container(
                 margin: EdgeInsets.only(left: mini ? 10 : 15),
-                padding: EdgeInsets.symmetric(vertical: mini ? 3 : 19),
+                padding: EdgeInsets.symmetric(vertical: mini ? 3 : 15),
                 decoration: BoxDecoration(
                     border: Border(
                         bottom: BorderSide(

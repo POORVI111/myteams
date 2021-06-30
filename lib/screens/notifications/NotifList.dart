@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:myteams/constants/strings.dart';
 import 'package:myteams/models/log.dart';
 import 'package:myteams/screens/widgets/InitialChatList.dart';
-import 'package:myteams/utils/customtile.dart';
+import 'package:myteams/screens/widgets/customtile.dart';
 import 'package:myteams/utils/utilities.dart';
 
 import '../../resources/localDB/LogRepository.dart';

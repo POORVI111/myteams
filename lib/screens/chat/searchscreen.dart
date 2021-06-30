@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
-import 'package:myteams/utils/customtile.dart';
+import 'package:myteams/screens/widgets/customtile.dart';
 
 import '../widgets/cachedImage.dart';
 import '../widgets/call_pickup_layout.dart';

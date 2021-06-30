@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:myteams/utils/customtile.dart';
+import 'package:myteams/screens/widgets/customtile.dart';
 
 class ModalTile extends StatelessWidget {
   final String title;

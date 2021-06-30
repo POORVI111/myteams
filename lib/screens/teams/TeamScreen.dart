@@ -19,7 +19,7 @@ import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/teams_post_methods.dart';
 import 'package:myteams/screens/widgets/cachedImage.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
-import 'package:myteams/utils/customappbar.dart';
+import 'package:myteams/screens/widgets/customappbar.dart';
 import 'package:provider/provider.dart';
 
 class TeamScreen extends StatefulWidget {

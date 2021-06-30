@@ -4,7 +4,7 @@ import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/chat_methods.dart';
 import 'package:myteams/resources/provider/userprovider.dart';
-import 'package:myteams/utils/customtile.dart';
+import 'package:myteams/screens/widgets/customtile.dart';
 import 'package:provider/provider.dart';
 
 import '../chat/chatscreen.dart';
