@@ -206,7 +206,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
         child: getMessage(message),
       ),
     );
@@ -247,7 +247,7 @@ class _ChatScreenState extends State<ChatScreen> {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(5),
         child: getMessage(message),
       ),
     );
