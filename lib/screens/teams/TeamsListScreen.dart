@@ -50,70 +50,88 @@ class TeamsListScreen extends StatelessWidget {
                    color: Colors.black,
                    ),
                    itemBuilder: (context) => [
-                   PopupMenuItem(
-                     child: Row(
-                       children: [
-                         IconButton(
-                          icon: Icon(
-                           Icons.add,
-                          color: Colors.black,
-                          size: 22.0,
-                          ),
-                          onPressed: () {
-                          Navigator.push(
-                          context,
-                              MaterialPageRoute(builder: (context) => CreateTeam()),
-                        );
-                          },
-                           ),
-                          Padding(
-                           padding: EdgeInsets.only(
-                           left: 10.0,
-                           ),
-                            child: Text(
-                            "Create Team",
-                          style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 18.0,
-                    ),
 
-                  ),
-                ),
+
+                     PopupMenuItem(
+                       child: Row(
+                        children: [
+
+                            GestureDetector(
+                              child: Container(
+
+                                child: Row(
+                                  children: <Widget>[
+                                                                         //Image.asset('images/google.png').,
+                                      Icon(
+                                        Icons.add,
+                                        color: Colors.black,
+                                        size: 22.0,
+                                      ),
+
+                                    Padding(
+                                      padding: const EdgeInsets.only(left: 10.0),
+                                      child: Text('Create Team        ',
+                                          style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                                    ),
+
+
+                                  ],
+
+                                ),
+                              ),
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => CreateTeam()),
+                                );
+                              },
+                            ),
+
+
 
               ],
             ),
           ),
                      PopupMenuItem(
                        child: Row(
-                        children: [
-                       IconButton(
-                       icon: Icon(
-                           Icons.group_outlined,
-                            color: Colors.black,
-                         size: 22.0,
-                         ),
-                         onPressed: (){
-                           Navigator.push(
-                             context,
-                             MaterialPageRoute(builder: (context) => JoinTeam()),
-                           );
-                         },
-                       ),
-                         Padding(
-                          padding: EdgeInsets.only(
-                            left: 10.0,
+                         children: [
+
+                           GestureDetector(
+                             child: Container(
+
+                               child: Row(
+                                 children: <Widget>[
+                                   //Image.asset('images/google.png').,
+                                   Icon(
+                                     Icons.group_outlined,
+                                     color: Colors.black,
+                                     size: 22.0,
+                                   ),
+
+                                   Padding(
+                                     padding: const EdgeInsets.only(left: 10.0),
+                                     child: Text('Join team with a code',
+                                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                                   ),
+
+
+                                 ],
+
+                               ),
+                             ),
+                             onTap: () {
+                               Navigator.push(
+                                 context,
+                                 MaterialPageRoute(builder: (context) => JoinTeam()),
+                               );
+                             },
                            ),
-                           child: Text(
-                         "Join Team",
-                          style: TextStyle(
-                         color: Colors.black,
-                           fontSize: 18.0,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
+
+
+
+                         ],
+                       ),
+                     ),
 
           ],
         ),
