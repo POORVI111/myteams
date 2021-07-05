@@ -11,7 +11,6 @@ class LogRepository {
   static init({@required bool isHive, @required String dbName}) {
     dbObject = HiveMethods();
     dbObject.openDb(dbName);
-    dbObject.init();
   }
 
   static addLogs(Log log) => dbObject.addLogs(log);

@@ -14,18 +14,10 @@ class HiveMethods implements LogInterface {
   openDb(dbName) => (hive_box = dbName);
 
   @override
-  init() async {
-    Directory dir = await getApplicationDocumentsDirectory();
-    Hive.init(dir.path);
-  }
-
-  @override
   addLogs(Log log) async {
     var box = await Hive.openBox(hive_box);
 
     var logMap = log.toMap(log);
-
-    // box.put("custom_key", logMap);
     int idOfInput = await box.add(logMap);
 
     print("Log added with id ${idOfInput.toString()} in Hive db");
