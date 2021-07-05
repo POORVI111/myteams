@@ -56,6 +56,7 @@ class _CallScreenState extends State<CallScreen> {
     await _engine.setParameters(
         '''{\"che.video.lowBitRateStreamParameter\":{\"width\":320,\"height\":180,\"frameRate\":15,\"bitRate\":140}}''');
     await _engine.joinChannel(null, widget.call.channelId, null, 0);
+
   }
 
   /// Create agora sdk instance and initialize
