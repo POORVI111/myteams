@@ -25,6 +25,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
   final _channelMessageController = TextEditingController();
 
   final _infoStrings = <String>[];
+  final _memberStrings=<String>[];
 
   AgoraRtmClient _client;
   AgoraRtmChannel _channel;
@@ -90,7 +91,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
       print("Member left: " + member.userId + ', channel: ' + member.channelId);
     };
     channel.onMessageReceived = (AgoraRtmMessage message, AgoraRtmMember member) {
-      _logPeer(message.text, member.toString());
+      _logPeer(message.text, member.userId);
     };
     return channel;
   }
@@ -105,7 +106,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         Container(
-          width: MediaQuery.of(context).size.width * 0.75,
+          width: MediaQuery.of(context).size.width*0.65,
           child: TextFormField(
             showCursor: true,
             enableSuggestions: true,
@@ -151,29 +152,37 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
                 return Container(
                   child: ListTile(
                     title: Align(
-                      alignment: _infoStrings[i].startsWith('%')
+                      alignment: _memberStrings[i].startsWith('%')
                           ? Alignment.bottomLeft
                           : Alignment.bottomRight,
                       child: Container(
                         padding: EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                         color: Colors.grey,
                         child: Column(
-                          crossAxisAlignment: _infoStrings[i].startsWith('%') ?  CrossAxisAlignment.start : CrossAxisAlignment.end,
+                          crossAxisAlignment: _memberStrings[i].startsWith('%') ?  CrossAxisAlignment.start : CrossAxisAlignment.end,
                           children: [
-                            _infoStrings[i].startsWith('%')
-                                ? Text(
-                              _infoStrings[i].substring(1),
-                              maxLines: 10,
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.right,
-                              style: TextStyle(color: Colors.black),
-                            )
-                                : Text(
+                            Text(
                               _infoStrings[i],
                               maxLines: 10,
                               overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.right,
-                              style: TextStyle(color: Colors.black),
+                              style: TextStyle(color: Colors.black,fontSize: 20),
+                            ),
+                            _memberStrings[i].startsWith('%')
+                                ? Text(
+                             '~'+ _memberStrings[i].substring(1),
+                              maxLines: 10,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(color: Colors.black, fontSize: 20),
+                            )
+                                : Text(
+                              '~'+"You",
+                              maxLines: 10,
+                              overflow: TextOverflow.ellipsis,
+                              textAlign: TextAlign.right,
+                              style: TextStyle(color: Colors.black,fontSize: 12
+                              ),
                             ),
                             /*Text(
                               widget.userName,
@@ -241,11 +250,13 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
   }
 
   void _logPeer(String info, String member){
-    info = '%'+info;
+    // % to differentiate between other member and current user
+    member='%'+member;
     print(info);
     if(mounted) {
       setState(() {
         _infoStrings.insert(0, info);
+        _memberStrings.insert(0,member);
       });
     }
 
@@ -256,6 +267,7 @@ class _RealTimeMessagingState extends State<RealTimeMessaging> {
     if(mounted) {
       setState(() {
         _infoStrings.insert(0, info);
+        _memberStrings.insert(0,"CurrUser");
       });
     }
   }

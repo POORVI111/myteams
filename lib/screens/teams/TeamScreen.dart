@@ -17,9 +17,11 @@ import 'package:myteams/models/user.dart';
 import 'package:myteams/resources/auth_methods.dart';
 import 'package:myteams/resources/provider/UploadImageProvider.dart';
 import 'package:myteams/resources/teams_post_methods.dart';
+import 'package:myteams/screens/broadcast/liveBroadcast.dart';
 import 'package:myteams/screens/widgets/cachedImage.dart';
 import 'package:myteams/screens/widgets/call_pickup_layout.dart';
 import 'package:myteams/screens/widgets/customappbar.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 
 class TeamScreen extends StatefulWidget {
@@ -432,7 +434,19 @@ class _TeamScreenState extends State<TeamScreen> {
           icon: Icon(
             Icons.video_call,
           ),
-          onPressed:() {},
+          onPressed:() async {
+            await _handleCameraAndMic(Permission.camera);
+            await _handleCameraAndMic(Permission.microphone);
+
+            Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => BroadcastPage(
+                userName: sender.name,
+                meetName: widget.team.id,
+                isBroadcaster: true,
+              ),
+            ),
+          );},
         ),
         IconButton(
           icon: Icon(
@@ -447,6 +461,10 @@ class _TeamScreenState extends State<TeamScreen> {
     ),
   ]
     );
+  }
+  Future<void> _handleCameraAndMic(Permission permission) async {
+    final status = await permission.request();
+    print(status);
   }
 }
 

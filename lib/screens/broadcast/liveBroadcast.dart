@@ -301,7 +301,8 @@ class _BroadcastPageState extends State<BroadcastPage> {
             channelName: widget.meetName,
             userName: widget.userName,
             isBroadcaster: widget.isBroadcaster,
-          ),)
+          ),
+        )
     );
   }
 }

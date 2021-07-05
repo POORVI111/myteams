@@ -13,7 +13,7 @@ import 'package:myteams/enum/user_state.dart';
 
 class Utils {
   static String getUsername(String email) {
-    return "live:${email.split('@')[0]}";
+    return email.split('@')[0];
   }
 
   static String getInitials(String name) {
@@ -23,12 +23,17 @@ class Utils {
     return firstNameInitial + lastNameInitial;
   }
 
-  // this is new
 
   static Future<PickedFile> pickImage({@required ImageSource source}) async {
     final _picker = ImagePicker();
     PickedFile selectedImage = await _picker.getImage(source: source);
     return selectedImage;
+  }
+
+  static String formatDateString(String dateString) {
+    DateTime dateTime = DateTime.parse(dateString);
+    var formatter = DateFormat('dd/MM/yy');
+    return formatter.format(dateTime);
   }
 
 
@@ -58,9 +63,5 @@ class Utils {
     }
   }
 
-  static String formatDateString(String dateString) {
-    DateTime dateTime = DateTime.parse(dateString);
-    var formatter = DateFormat('dd/MM/yy');
-    return formatter.format(dateTime);
-  }
+
 }

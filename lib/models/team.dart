@@ -16,8 +16,6 @@ class Team {
 
   });
 
-
-
   // Named constructor
   factory Team.fromDocument(DocumentSnapshot doc) {
     return Team(
