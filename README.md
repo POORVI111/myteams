@@ -1,16 +1,42 @@
-# myteams
+## MY Teams - Microsoft Teams Clone
+Microsoft Engage Mentorship 2021
 
-A new Flutter application.
+**Project Presentation** : [View Here](https://docs.google.com/presentation/d/1yOyuZEAP63UsF_bjFAWBFpCm0xGxVlpKU8kZKeR2CIE/edit#slide=id.g246ee7dff8_1_5)<br />
+**App's APK** : [Download]()
 
-## Getting Started
+### THE PROCESS FLOW
+1. Sign In(Google Authentication)
+2. Join a meeting with/without authentication as an Audience or Broadcaster, mute/unmute, chat, change camera view in the meeting
+3. Search friends or family
+4. Create a team, join team with a code, post information, video call with the team members
+5. Chat or video call with other users, offline/online users can be seen.
+6. Share media or doodles
+7. Get notifications, keep or delete logs
 
-This project is a starting point for a Flutter application.
+### APIs and Components used
+- Cloud Firestore Database
+- Firebase Storage
+- Firebase Authentication
+- Agora API for video calls
+- Agora Real Time Messaging
+- SQlite for local database
 
-A few resources to get you started if this is your first Flutter project:
+### To try hands on the project
+Either, just download the APK  and try it out.<br /> OR,<br />
+1. CLone the project using link: 
+2. Import the Project in Android Studio
+3. Deploy the app to your android device and voila`... you are good to go!<br />
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+
+
+
+
+
+
+
+
+
+ 
