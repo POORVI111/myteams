@@ -300,7 +300,7 @@ class _BroadcastPageState extends State<BroadcastPage> {
           builder: (context) => RealTimeMessaging(
             channelName: widget.meetName,
             userName: widget.userName,
-            isBroadcaster: widget.isBroadcaster,
+
           ),
         )
     );

@@ -7,10 +7,9 @@ import 'package:myteams/constants/configs.dart';
 class RealTimeMessaging extends StatefulWidget {
   final String channelName;
   final String userName;
-  final bool isBroadcaster;
 
   const RealTimeMessaging(
-      {Key key, this.channelName, this.userName, this.isBroadcaster})
+      {Key key, this.channelName, this.userName})
       : super(key: key);
 
   @override
