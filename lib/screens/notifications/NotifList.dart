@@ -23,7 +23,7 @@ class _NotifListContainerState extends State<NotifListContainer> {
 
       case CALL_STATUS_MISSED:
         _icon = Icon(
-          Icons.call_missed,
+          Icons.missed_video_call_outlined,
           color: Colors.red,
           size: _iconSize,
         );
@@ -63,7 +63,7 @@ class _NotifListContainerState extends State<NotifListContainer> {
 
         if (snapshot.hasData) {
           List<dynamic> logList = snapshot.data;
-
+          if (logList.isNotEmpty) {
             return ListView.builder(
               itemCount: logList.length,
               itemBuilder: (context, i) {
@@ -77,30 +77,32 @@ class _NotifListContainerState extends State<NotifListContainer> {
                     radius: 45,
                   ),
                   mini: false,
-                  onLongPress: () => showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text("Delete this Log?"),
-                      content:
-                      Text("Are you sure you wish to delete this log?"),
-                      actions: [
-                        FlatButton(
-                          child: Text("YES"),
-                          onPressed: () async {
-                            Navigator.maybePop(context);
-                            await LogRepository.deleteLogs(i);
-                            if (mounted) {
-                              setState(() {});
-                            }
-                          },
-                        ),
-                        FlatButton(
-                          child: Text("NO"),
-                          onPressed: () => Navigator.maybePop(context),
-                        ),
-                      ],
-                    ),
-                  ),
+                  onLongPress: () =>
+                      showDialog(
+                        context: context,
+                        builder: (context) =>
+                            AlertDialog(
+                              title: Text("Delete this Log?"),
+                              content:
+                              Text("Are you sure you wish to delete this log?"),
+                              actions: [
+                                FlatButton(
+                                  child: Text("YES"),
+                                  onPressed: () async {
+                                    Navigator.maybePop(context);
+                                    await LogRepository.deleteLogs(i);
+                                    if (mounted) {
+                                      setState(() {});
+                                    }
+                                  },
+                                ),
+                                FlatButton(
+                                  child: Text("NO"),
+                                  onPressed: () => Navigator.maybePop(context),
+                                ),
+                              ],
+                            ),
+                      ),
                   title: Text(
                     hasDialled ? _log.receiverName : _log.callerName,
                     style: TextStyle(
@@ -119,11 +121,10 @@ class _NotifListContainerState extends State<NotifListContainer> {
               },
             );
           }
-
-
+        }
         return InitialList(
           heading: "This is where all your call logs are listed",
-          subtitle: "Calling people all over the world with just one click",
+          subtitle: "Search Users to chat and call",
         );
       },
     );

@@ -72,7 +72,7 @@ class ChatListContainer extends StatelessWidget {
               if (docList.isEmpty) {
                 //when user has no chats with anyone
                 return InitialList(
-                  heading: "This is where all the contacts are listed",
+                  heading: "This is where all the chats are listed",
                   subtitle:
                   "Search for your friends and family to start calling or chatting with them",
                 );

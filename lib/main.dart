@@ -56,9 +56,9 @@ class MyAppState extends State<MyApp> {
               return SplashScreen(
                 seconds: 4,
                 navigateAfterSeconds: LoginScreen(),
-                title: new Text('Microsoft Teams',textScaleFactor: 2,),
-                image: new Image.asset('images/introimage.jpg', height:400),
-                loadingText: Text("Loading"),
+                title: new Text('Teams',textScaleFactor: 2),
+                image: new Image.asset('images/introimage.jpg', height:300),
+                loadingText: Text("Welcome to Teams"),
                 photoSize: 100.0,
                 loaderColor: Colors.deepPurple,
               );
