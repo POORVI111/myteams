@@ -1,4 +1,4 @@
-## MY Teams - Microsoft Teams Clone
+## My Teams - Microsoft Teams Clone
 Microsoft Engage Mentorship 2021<br />
 
 **Project Presentation** : [View Here](https://docs.google.com/presentation/d/1yOyuZEAP63UsF_bjFAWBFpCm0xGxVlpKU8kZKeR2CIE/edit#slide=id.g246ee7dff8_1_5)<br />
@@ -20,7 +20,7 @@ Microsoft Engage Mentorship 2021<br />
 - Firebase Authentication
 - Agora API for video calls
 - Agora Real Time Messaging
-- SQlite for local database
+- Hive for local database
 
 ### To try hands on the project
 Either, just [download the APK](https://drive.google.com/file/d/10mAcTvsheQqevUy2rw2YDqH6b_LnN0ZM/view?usp=sharing)  and try it out.<br /> OR,<br />
